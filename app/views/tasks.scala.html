@@ -10,20 +10,9 @@
     @tasks.map { task =>
     <li>
         @task.label
-
-        @form(routes.HomeController.deleteTask(task.id)) {
-        @CSRF.formField
-        <input type="submit" value="Delete">
-        }
-    </li>
-    <li>
-        @form(routes.HomeController.updateTask(task.id)) {
-        @CSRF.formField
-        @inputText(taskForm("label"), '_label -> "Give a new task name to update")
-
-        <input type="submit" value="Update">
-
-        }
+        <!-- [TASK-4] -->
+        <!--TODO: Add a form to update the task. Refer to the Add Task section on how to add a form. -->
+        <!-- Note that you need to pass the task id to the controller method-->
     </li>
     }
 </ul>
