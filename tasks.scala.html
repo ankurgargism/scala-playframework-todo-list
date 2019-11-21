@@ -1,0 +1,45 @@
+<!-- LBCD-NOTE: A type safe template engine based on Scala, so a type error here will give compilation error.-->
+
+<!-- More LBCD-NOTE: The Scala template uses @ as the single special character.
+Every time this character is encountered, it indicates the beginning of a dynamic statement.
+You are not required to explicitly close the code block - (unlike JSP <% %> etc.
+the end of the dynamic statement will be inferred from your code.
+-->
+
+@* LBCD-NOTE: Server side comment, this will not be rendered in browser unlike the previous code. We can verify same
+* using view source
+*@
+
+@(tasks: List[Task], taskForm: Form[String])(implicit request: RequestHeader, messages: Messages)
+
+@import helper._
+
+@main("Todo list") {
+
+<h1>@tasks.size task(s)</h1>
+
+<ul>
+    @tasks.map { task =>
+    <li>
+        @task.label
+        <!-- [TASK-4] -->
+        <!--TODO: Add a form to update the task. Refer to the Add Task section on how to add a form. -->
+        <!-- Note that you need to pass the task id to the controller method-->
+    </li>
+    }
+</ul>
+
+<h2>Add a new task</h2>
+
+<!-- LBCD-NOTE: https://www.playframework.com/documentation/2.7.x/ScalaForms Check 'Form Basics' section
+to understand how forms works E2E. -->
+
+@form(routes.HomeController.newTask) {
+@CSRF.formField
+@inputText(taskForm("label"), '_label -> "Task name")
+
+<input type="submit" value="Create">
+
+}
+
+}

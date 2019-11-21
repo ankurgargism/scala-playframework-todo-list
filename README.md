@@ -16,4 +16,8 @@ Play will start up on the HTTP port at <http://localhost:9000/>.   You don't nee
 
 ### Problem Statement
 
-You need to implement six tasks in this to make the application work properly. You can search the tasks in the code eg "[Task-1]" to go directly to the code and implement them.
+You need to implement six tasks in this to make the application work properly.
+You can search the tasks in the code eg "[Task-1]" to go directly to the code and implement them.
+
+### Notes
+Look for notes with LBCD-NOTE for more details of scala constructs.
